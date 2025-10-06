@@ -51,7 +51,7 @@ def stop_existing_containers(profile=None):
     cmd = ["docker", "compose", "-p", "localai"]
     if profile and profile != "none":
         cmd.extend(["--profile", profile])
-    cmd.extend(["-f", "docker-compose.yml", "down"])
+    cmd.extend(["-f", "docker-compose-offers.yml", "down"])
     run_command(cmd)
 
 def start_supabase(environment=None):
@@ -69,7 +69,7 @@ def start_local_ai(profile=None, environment=None):
     cmd = ["docker", "compose", "-p", "localai"]
     if profile and profile != "none":
         cmd.extend(["--profile", profile])
-    cmd.extend(["-f", "docker-compose.yml"])
+    cmd.extend(["-f", "docker-compose-offers.yml"])
     if environment and environment == "private":
         cmd.extend(["-f", "docker-compose.override.private.yml"])
     if environment and environment == "public":
